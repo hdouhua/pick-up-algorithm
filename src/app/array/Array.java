@@ -2,6 +2,7 @@ package app.array;
 
 /**
  * manually define Array
+ * 
  * @param <E> cannot be basic type: boolean, byte, char, short, int, long, float, double
  */
 public class Array<E> {
@@ -47,12 +48,13 @@ public class Array<E> {
     }
 
     public void add(int index, E e) {
-        if (size == data.length) {
-            throw new IllegalArgumentException("Add failed. Array is full");
-        }
-
         if (index < 0 || index > size) {
             throw new IllegalArgumentException("Add failed. Require index >0 and index <= size");
+        }
+
+        if (size == data.length) {
+            //throw new IllegalArgumentException("Add failed. Array is full");
+            resize(2 * size);
         }
 
         for (int i = size; i > index; i--) {
@@ -120,7 +122,7 @@ public class Array<E> {
 
     E remove(int index) {
         if (index < 0 || index >= size) {
-            throw new IllegalArgumentException("Get failed. Index is illegal.");
+            throw new IllegalArgumentException("Remove failed. Index is illegal.");
         }
 
         E val = this.data[index];
@@ -129,6 +131,11 @@ public class Array<E> {
         }
         size--;
         this.data[size] = null; // this is optional, to let java GC collect (this is loitering object != memory leak)
+
+        if (size == data.length /2 ) {
+            resize(data.length / 2);
+        }
+
         return val;
     }
 
@@ -147,5 +154,13 @@ public class Array<E> {
             return true;
         }
         return false;
+    }
+
+    private void resize(int newCapacity) {
+        E[] newData = (E[])new Object[newCapacity];
+        for (int i = 0; i < size; i++) {
+            newData[i] = data[i];
+        }
+        data = newData;
     }
 }
