@@ -202,7 +202,7 @@ public class ThreeSum {
                 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
                 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 
-        List<List<Integer>> result = new ThreeSum().threeSum(nums);
+        List<List<Integer>> result = new ThreeSum().threeSum3(nums);
         System.out.println(result);
     }
 }

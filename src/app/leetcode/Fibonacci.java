@@ -20,7 +20,8 @@ public class Fibonacci {
     }
 
     public static void main(String[] args) {
-        int n = 10;
-        System.out.println(new Fibonacci().fib(n));
+        System.out.println(new Fibonacci().fib(10));
+        System.out.println(new Fibonacci().fib(20));
+        System.out.println(new Fibonacci().fib(30));
     }
 }
