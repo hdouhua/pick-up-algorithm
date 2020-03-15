@@ -47,13 +47,19 @@ public class Array<E> {
         add(size, e);
     }
 
+    /**
+     * dynamically add
+     */
     public void add(int index, E e) {
+        // if (size == data.length) {
+        //     throw new IllegalArgumentException("Add failed. Array is full");
+        // }
+
         if (index < 0 || index > size) {
             throw new IllegalArgumentException("Add failed. Require index >0 and index <= size");
         }
 
         if (size == data.length) {
-            //throw new IllegalArgumentException("Add failed. Array is full");
             resize(2 * size);
         }
 
@@ -87,6 +93,14 @@ public class Array<E> {
         }
 
         return this.data[index];
+    }
+
+    public E getFirst(){
+        return get(0);
+    }
+
+    public E getLast() {
+        return this.get(size-1);
     }
 
     public void set(int index, E e) {
@@ -132,7 +146,12 @@ public class Array<E> {
         size--;
         this.data[size] = null; // this is optional, to let java GC collect (this is loitering object != memory leak)
 
-        if (size == data.length /2 ) {
+        // // eager strategy
+        // if (size == data.length /2 ) {
+        //     resize(data.length / 2);
+        // }
+        // lazy strategy
+        if(size == data.length /4 && size > 0) {
             resize(data.length / 2);
         }
 
