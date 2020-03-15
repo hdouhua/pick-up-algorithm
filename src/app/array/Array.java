@@ -110,7 +110,7 @@ public class Array<E> {
         this.data[index] = e;
     }
 
-    boolean contains(E e) {
+    public boolean contains(E e) {
         for (E x : data) {
             if (x.equals(e)) {
                 return true;
@@ -125,7 +125,7 @@ public class Array<E> {
      * @param e : the value
      * @return
      */
-    int find(E e) {
+   public int find(E e) {
         for (int i = 0; i < size; i++) {
             if (this.data[i].equals(e)) {
                 return i;
@@ -134,7 +134,7 @@ public class Array<E> {
         return -1;
     }
 
-    E remove(int index) {
+    public E remove(int index) {
         if (index < 0 || index >= size) {
             throw new IllegalArgumentException("Remove failed. Index is illegal.");
         }
@@ -158,15 +158,15 @@ public class Array<E> {
         return val;
     }
 
-    E removeFirst() {
+    public E removeFirst() {
         return remove(0);
     }
 
-    E removeLast() {
+    public E removeLast() {
         return remove(this.size - 1);
     }
 
-    boolean removeElement(E e) {
+    public boolean removeElement(E e) {
         int index = find(e);
         if (index >= 0) {
             remove(index);
