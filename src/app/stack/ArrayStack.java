@@ -53,7 +53,7 @@ public class ArrayStack<E> implements Stack<E> {
         sb.append("[");
         for (int i = 0; i < array.getSize(); i++) {
             if(i != 0) {
-                sb.append(",");
+                sb.append(", ");
             }
             sb.append(array.get(i));
         }

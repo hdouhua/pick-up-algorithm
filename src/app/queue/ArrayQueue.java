@@ -10,39 +10,42 @@ public class ArrayQueue<E> implements Queue<E> {
     private Array<E> array;
 
     public ArrayQueue() {
-        this.array = new Array<>();
+        array = new Array<>();
     }
     public ArrayQueue(int capacity) {
-        this.array = new Array<>(capacity);
+        array = new Array<>(capacity);
     }
 
     @Override
     public int getSize() {
-        return this.array.getSize();
+        return array.getSize();
     }
 
     @Override
     public boolean isEmpty() {
-        return this.array.isEmpty();
+        return array.isEmpty();
     }
 
     public int getCapacity(){
-        return this.array.getCapacity();
+        return array.getCapacity();
     }
 
     @Override
     public void enqueue(E e) {
-       this.array.addLast(e);
+       array.addLast(e);
     }
 
+    /**
+     * bad performance O(n)
+     */
     @Override
     public E dequeue() {
-        return this.array.removeFirst();
+        return array.removeFirst();
     }
 
     @Override
     public E getFront() {
-        return this.array.getFirst();
+        return array.getFirst();
     }
 
     @Override
@@ -52,9 +55,9 @@ public class ArrayQueue<E> implements Queue<E> {
         sb.append("front [");
         for (int i = 0; i < array.getSize(); i++) {
             if(i != 0) {
-                sb.append(",");
+                sb.append(", ");
             }
-            sb.append(array.get(i));
+            sb.append(array.get(i).toString());
         }
         sb.append("] tail");
         return sb.toString();
@@ -68,7 +71,7 @@ public class ArrayQueue<E> implements Queue<E> {
 
             if (i % 3 == 2) {
                 queue.dequeue();
-                System.out.println(queue);
+                System.out.println("<Dequeue> " + queue);
             }
         }
     }

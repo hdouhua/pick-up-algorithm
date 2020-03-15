@@ -2,6 +2,7 @@ package app.link;
 
 /**
  * LinkedList
+ * time complecity: add/remove/set - O(n)
  */
 public class LinkedList<E> {
 
@@ -159,7 +160,7 @@ public class LinkedList<E> {
         StringBuilder sb = new StringBuilder();
         Node current = dummyHead.next;
         while(current != null) {
-            sb.append(current.e.toString() + "->");
+            sb.append(current.e.toString() + " -> ");
             current = current.next;
         }
         sb.append("NULL");
