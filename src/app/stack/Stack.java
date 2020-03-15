@@ -1,4 +1,4 @@
-package app.array;
+package app.stack;
 
 public interface Stack<E> {
     int getSize();
