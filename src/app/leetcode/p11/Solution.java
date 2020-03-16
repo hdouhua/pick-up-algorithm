@@ -1,10 +1,10 @@
-package app.leetcode;
+package app.leetcode.p11;
 
 /**
  * MaxArea
  * for more, please refer to https://leetcode.com/problems/container-with-most-water/
  */
-public class MaxArea {
+public class Solution {
 
     public int maxArea(int[] height) {
         int area = 0;
@@ -47,7 +47,7 @@ public class MaxArea {
 
     public static void main(String[] args) {
         int[] values = new int[] { 1, 8, 6, 2, 5, 4, 8, 3, 7 };
-        int area = new MaxArea().maxArea2(values);
+        int area = new Solution().maxArea2(values);
 
         System.out.println(area);
     }

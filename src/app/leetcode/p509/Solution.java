@@ -1,10 +1,10 @@
-package app.leetcode;
+package app.leetcode.p509;
 
 /**
  * Fibonacci
  * for more, please refer to https://leetcode.com/problems/fibonacci-number/
  */
-public class Fibonacci {
+public class Solution {
 
     // n < 2 ? 1 : (Fib(n-1) + Fib(n-2));
     public int fib(int N) {
@@ -20,8 +20,8 @@ public class Fibonacci {
     }
 
     public static void main(String[] args) {
-        System.out.println(new Fibonacci().fib(10));
-        System.out.println(new Fibonacci().fib(20));
-        System.out.println(new Fibonacci().fib(30));
+        System.out.println(new Solution().fib(10));
+        System.out.println(new Solution().fib(20));
+        System.out.println(new Solution().fib(30));
     }
 }

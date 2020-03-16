@@ -1,4 +1,4 @@
-package app.leetcode;
+package app.leetcode.p15;
 
 import java.util.*;
 
@@ -6,7 +6,7 @@ import java.util.*;
  * ThreeSum
  * for more, please refer to https://leetcode.com/problems/3sum/
  */
-public class ThreeSum {
+public class Solution {
 
     /**
      * O(n^3)
@@ -202,7 +202,7 @@ public class ThreeSum {
                 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
                 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 
-        List<List<Integer>> result = new ThreeSum().threeSum3(nums);
+        List<List<Integer>> result = new Solution().threeSum3(nums);
         System.out.println(result);
     }
 }

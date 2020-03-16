@@ -1,10 +1,10 @@
-package app.leetcode;
+package app.leetcode.p70;
 
 /**
  * ClimbStairs
  * for more, please refer to https://leetcode.com/problems/climbing-stairs/
  */
-public class ClimbStairs {
+public class Solution {
 
     public int climbStairs(int n) {
         // if (n == 1) {
@@ -20,10 +20,10 @@ public class ClimbStairs {
     }
 
     public static void main(String[] args) {
-        System.out.println(new ClimbStairs().climbStairs(2));
-        System.out.println(new ClimbStairs().climbStairs(3));
-        System.out.println(new ClimbStairs().climbStairs(4));
-        System.out.println(new ClimbStairs().climbStairs(5));
+        System.out.println(new Solution().climbStairs(2));
+        System.out.println(new Solution().climbStairs(3));
+        System.out.println(new Solution().climbStairs(4));
+        System.out.println(new Solution().climbStairs(5));
     }
 
 }

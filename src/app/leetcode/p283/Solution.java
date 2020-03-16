@@ -1,12 +1,12 @@
-package app.leetcode;
+package app.leetcode.p283;
 
 /**
  * MoveZeros for more, plesae refer to
  * https://leetcode.com/problems/move-zeroes/
  */
-public class MoveZeros {
+public class Solution {
 
-    public void moveZeros(int[] nums) {
+    public void moveZeroes(int[] nums) {
         int j = 0;
         for (int i = 0; i < nums.length; i++) {
             if (nums[i] != 0) {
@@ -19,7 +19,7 @@ public class MoveZeros {
         }
     }
 
-    public void moveZeros2(int[] nums) {
+    public void moveZeroes2(int[] nums) {
         int length = nums.length;
         int nonZeroIndex = 0;
         for (int i = 0; i < length; i++) {
@@ -34,7 +34,7 @@ public class MoveZeros {
         }
     }
 
-    public void moveZeros3(int[] nums) {
+    public void moveZeroes3(int[] nums) {
         int length = nums.length;
         int nonZeroIndex = 0;
         int temp;
@@ -51,7 +51,7 @@ public class MoveZeros {
     public static void main(String[] args) {
 
         int[] nums = new int[] { 0, 1, 0, 3, 12 };
-        new MoveZeros().moveZeros3(nums);
+        new Solution().moveZeroes3(nums);
 
         for (int x : nums) {
             System.out.print(x);
