@@ -1,6 +1,6 @@
 package app.leetcode.p141;
 
-import app.leetcode.ListNode;
+import app.leetcode.shared.*;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 /**
