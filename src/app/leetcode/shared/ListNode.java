@@ -23,7 +23,7 @@ public class ListNode {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder("ListNode: ");
+        StringBuilder sb = new StringBuilder();
 
         ListNode node = this;
         while(node != null) {

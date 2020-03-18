@@ -38,8 +38,12 @@ class Solution {
         return head;
     }
 
-    public ListNode removeElements3(ListNode head, int val) {
+    public ListNode removeElements3(ListNode head, int val, int depth) {
+        String depthString = getDepthString(depth);
+        System.out.println(String.format("%sCall: remove %d in %s",depthString, val, head));
+
         if(head == null) {
+            System.out.println(depthString + "Return: null");
             return null;
         }
 
@@ -51,8 +55,28 @@ class Solution {
         //     return head;
         // }
         //=>
-        head.next = removeElements3(head.next, val);
-        return head.val == val ? head.next : head;
+        // head.next = removeElements3(head.next, val, 0);
+        // return head.val == val ? head.next : head;
+
+        ListNode remaining = removeElements3(head.next, val, depth + 1);
+        System.out.println(String.format("%sAfter remove %d: %s", depthString, val, head));
+
+        if (head.val == val) {
+            System.out.println(depthString +  "Return: " + remaining);
+            return remaining;
+        } else {
+            head.next = remaining;
+            System.out.println(depthString + "Return: " + head);
+            return head;
+        }
+    }
+
+    private String getDepthString(int depth) {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < depth; i++) {
+            sb.append("--");
+        }
+        return sb.toString();
     }
 
     public static void main(String[] args) {
@@ -66,7 +90,7 @@ class Solution {
         // result = new Solution().removeElements2(head, 5);
         // System.out.println(result);
 
-        ListNode result = new Solution().removeElements3(head, 5);
+        ListNode result = new Solution().removeElements3(head, 5, 0);
         System.out.println(result);
     }
 }
