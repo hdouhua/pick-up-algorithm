@@ -3,7 +3,8 @@ package app.array;
 /**
  * manually define Array
  * 
- * @param <E> cannot be basic type: boolean, byte, char, short, int, long, float, double
+ * @param <E> cannot be basic type: boolean, byte, char, short, int, long,
+ *            float, double
  */
 public class Array<E> {
 
@@ -52,7 +53,7 @@ public class Array<E> {
      */
     public void add(int index, E e) {
         // if (size == data.length) {
-        //     throw new IllegalArgumentException("Add failed. Array is full");
+        // throw new IllegalArgumentException("Add failed. Array is full");
         // }
 
         if (index < 0 || index > size) {
@@ -95,12 +96,12 @@ public class Array<E> {
         return this.data[index];
     }
 
-    public E getFirst(){
+    public E getFirst() {
         return get(0);
     }
 
     public E getLast() {
-        return this.get(size-1);
+        return this.get(size - 1);
     }
 
     public void set(int index, E e) {
@@ -125,7 +126,7 @@ public class Array<E> {
      * @param e : the value
      * @return
      */
-   public int find(E e) {
+    public int find(E e) {
         for (int i = 0; i < size; i++) {
             if (this.data[i].equals(e)) {
                 return i;
@@ -144,14 +145,15 @@ public class Array<E> {
             this.data[i] = this.data[i + 1];
         }
         size--;
-        this.data[size] = null; // this is optional, to let java GC collect (this is loitering object != memory leak)
+        // this is optional, to let java GC collect (this is loitering object != memory leak)
+        this.data[size] = null; 
 
         // // eager strategy
         // if (size == data.length /2 ) {
-        //     resize(data.length / 2);
+        // resize(data.length / 2);
         // }
         // lazy strategy
-        if(size == data.length /4 && size > 0) {
+        if (size == data.length / 4 && size > 0) {
             resize(data.length / 2);
         }
 
@@ -176,7 +178,7 @@ public class Array<E> {
     }
 
     private void resize(int newCapacity) {
-        E[] newData = (E[])new Object[newCapacity];
+        E[] newData = (E[]) new Object[newCapacity];
         for (int i = 0; i < size; i++) {
             newData[i] = data[i];
         }

@@ -10,10 +10,10 @@ public class LoopArrayQueue<E> implements Queue<E> {
     private int size;
 
     public LoopArrayQueue(int capacity) {
-        data = (E[])new Object[capacity + 1];
+        data = (E[]) new Object[capacity + 1];
         front = 0;
         tail = 0;
-        size =0 ;
+        size = 0;
     }
 
     public LoopArrayQueue() {
@@ -25,7 +25,7 @@ public class LoopArrayQueue<E> implements Queue<E> {
         return size;
     }
 
-    public int getCapacity(){
+    public int getCapacity() {
         return data.length - 1;
     }
 
@@ -36,18 +36,18 @@ public class LoopArrayQueue<E> implements Queue<E> {
 
     @Override
     public void enqueue(E e) {
-         // queue is full
-         if (front == (tail + 1 ) % data.length) {
+        // queue is full
+        if (front == (tail + 1) % data.length) {
             this.resize(this.getCapacity() * 2);
         }
 
         data[tail] = e;
-        tail = (tail + 1 ) % data.length;
+        tail = (tail + 1) % data.length;
         size++;
     }
 
     private void resize(int capacity) {
-        E[] queue = (E[])new Object[capacity + 1];
+        E[] queue = (E[]) new Object[capacity + 1];
 
         int length = data.length;
         for (int i = 0; i < size; i++) {
@@ -61,17 +61,17 @@ public class LoopArrayQueue<E> implements Queue<E> {
 
     @Override
     public E dequeue() {
-        if(this.isEmpty()) {
+        if (this.isEmpty()) {
             throw new IllegalArgumentException("Cannot dequeue from empty queue");
         }
-        
+
         E e = data[front];
         data[front] = null; // for java GC
-        front = (front + 1 )% data.length;
+        front = (front + 1) % data.length;
         size--;
 
         int capacity = this.getCapacity();
-        if (capacity != 0 && size == capacity /4){
+        if (capacity != 0 && size == capacity / 4) {
             this.resize(capacity / 2);
         }
 
@@ -80,7 +80,7 @@ public class LoopArrayQueue<E> implements Queue<E> {
 
     @Override
     public E getFront() {
-        if(this.isEmpty()) {
+        if (this.isEmpty()) {
             throw new IllegalArgumentException("Queue is empty");
         }
         return data[front];
@@ -94,10 +94,10 @@ public class LoopArrayQueue<E> implements Queue<E> {
         sb.append("front [");
         int length = data.length;
         for (int i = 0; i < size; i++) {
-            if(i != 0) {
+            if (i != 0) {
                 sb.append(", ");
             }
-            sb.append(data[(i+front)%length].toString());
+            sb.append(data[(i + front) % length].toString());
         }
         sb.append("] tail");
 
@@ -110,7 +110,7 @@ public class LoopArrayQueue<E> implements Queue<E> {
         for (int i = 0; i < 10; i++) {
             queue.enqueue(i);
             System.out.println(queue);
-            if(i % 3 == 2) {
+            if (i % 3 == 2) {
                 queue.dequeue();
                 System.out.println("<Dequeue> " + queue);
             }

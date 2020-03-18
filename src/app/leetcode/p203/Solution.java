@@ -11,9 +11,9 @@ class Solution {
         dummyHead.next = head;
         ListNode prev = dummyHead;
         while (prev.next != null) {
-            if(prev.next.val == val) {
+            if (prev.next.val == val) {
                 prev.next = prev.next.next;
-            }else {
+            } else {
                 prev = prev.next;
             }
         }
@@ -21,15 +21,15 @@ class Solution {
     }
 
     public ListNode removeElements2(ListNode head, int val) {
-        while(head!=null && head.val == val) {
+        while (head != null && head.val == val) {
             head = head.next;
         }
-        if(head == null) {
+        if (head == null) {
             return head;
         }
         ListNode node = head;
-        while(node.next!=null) {
-            if(node.next.val == val) {
+        while (node.next != null) {
+            if (node.next.val == val) {
                 node.next = node.next.next;
             } else {
                 node = node.next;
@@ -40,21 +40,21 @@ class Solution {
 
     public ListNode removeElements3(ListNode head, int val, int depth) {
         String depthString = getDepthString(depth);
-        System.out.println(String.format("%sCall: remove %d in %s",depthString, val, head));
+        System.out.println(String.format("%sCall: remove %d in %s", depthString, val, head));
 
-        if(head == null) {
+        if (head == null) {
             System.out.println(depthString + "Return: null");
             return null;
         }
 
         // ListNode remaining = removeElements3(head.next, val);
         // if (head.val == val) {
-        //     return remaining;
+        // return remaining;
         // } else {
-        //     head.next = remaining;
-        //     return head;
+        // head.next = remaining;
+        // return head;
         // }
-        //=>
+        // =>
         // head.next = removeElements3(head.next, val, 0);
         // return head.val == val ? head.next : head;
 
@@ -62,7 +62,7 @@ class Solution {
         System.out.println(String.format("%sAfter remove %d: %s", depthString, val, head));
 
         if (head.val == val) {
-            System.out.println(depthString +  "Return: " + remaining);
+            System.out.println(depthString + "Return: " + remaining);
             return remaining;
         } else {
             head.next = remaining;
@@ -80,7 +80,7 @@ class Solution {
     }
 
     public static void main(String[] args) {
-        int[] nums = {1,2,5,4,5,6};
+        int[] nums = { 1, 2, 5, 4, 5, 6 };
         ListNode head = new ListNode(nums);
         System.out.println(head);
 

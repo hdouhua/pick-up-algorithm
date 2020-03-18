@@ -17,14 +17,14 @@ public class Main {
         arr.set(9, 99);
         System.out.println(arr);
 
-        if(arr.contains(99)){
+        if (arr.contains(99)) {
             System.out.println(arr.find(99));
         }
 
         arr.removeLast();
         System.out.println(arr);
 
-        if(arr.removeElement(99)) {
+        if (arr.removeElement(99)) {
             System.out.println(arr);
         }
 

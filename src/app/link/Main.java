@@ -1,12 +1,11 @@
 package app.link;
 
-
 /**
  * Main
  */
 public class Main {
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         LinkedList<Integer> link = new LinkedList<>();
         for (int i = 0; i < 5; i++) {
             link.addFirst(i);

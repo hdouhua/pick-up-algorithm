@@ -12,6 +12,7 @@ public class ArrayQueue<E> implements Queue<E> {
     public ArrayQueue() {
         array = new Array<>();
     }
+
     public ArrayQueue(int capacity) {
         array = new Array<>(capacity);
     }
@@ -26,13 +27,13 @@ public class ArrayQueue<E> implements Queue<E> {
         return array.isEmpty();
     }
 
-    public int getCapacity(){
+    public int getCapacity() {
         return array.getCapacity();
     }
 
     @Override
     public void enqueue(E e) {
-       array.addLast(e);
+        array.addLast(e);
     }
 
     /**
@@ -54,7 +55,7 @@ public class ArrayQueue<E> implements Queue<E> {
         sb.append("Queue: ");
         sb.append("front [");
         for (int i = 0; i < array.getSize(); i++) {
-            if(i != 0) {
+            if (i != 0) {
                 sb.append(", ");
             }
             sb.append(array.get(i).toString());

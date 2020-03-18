@@ -4,7 +4,9 @@ import app.link.LinkedList;
 
 /**
  * LinkedListQueue
+ * 
  * enqueue from tail
+ * 
  * dequeue from head
  */
 public class LinkedListQueue<E> implements Queue<E> {
@@ -56,7 +58,7 @@ public class LinkedListQueue<E> implements Queue<E> {
         if (tail == null) {
             tail = new Node(e, null);
             head = tail;
-        }else{
+        } else {
             tail.next = new Node(e, null);
             tail = tail.next;
         }
@@ -65,13 +67,13 @@ public class LinkedListQueue<E> implements Queue<E> {
 
     @Override
     public E dequeue() {
-        if (this.isEmpty()){
+        if (this.isEmpty()) {
             throw new IllegalArgumentException("Cannot dequeue from empty queue");
         }
         Node node = head;
         head = head.next;
-        node.next = null;//special for GC
-        if(head == null) {
+        node.next = null;// special for GC
+        if (head == null) {
             tail = null;
         }
         size--;
@@ -80,7 +82,7 @@ public class LinkedListQueue<E> implements Queue<E> {
 
     @Override
     public E getFront() {
-        if(this.isEmpty()) {
+        if (this.isEmpty()) {
             throw new IllegalArgumentException("Queue is empty");
         }
         return head.e;
@@ -92,7 +94,7 @@ public class LinkedListQueue<E> implements Queue<E> {
         sb.append("Queue: front ");
 
         Node current = head;
-        while(current != null) {
+        while (current != null) {
             sb.append(current.e.toString() + " -> ");
             current = current.next;
         }

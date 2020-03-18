@@ -2,12 +2,14 @@ package app.link;
 
 /**
  * LinkedList
+ * 
  * time complecity: add/remove/set - O(n)
  */
 public class LinkedList<E> {
 
     /**
-     * set the modifier private because user don't need to know the internal data structure
+     * set the modifier private because user don't need to know the internal data
+     * structure
      */
     private class Node {
         public E e;
@@ -42,7 +44,7 @@ public class LinkedList<E> {
         size = 0;
     }
 
-    public int getSize(){
+    public int getSize() {
         return size;
     }
 
@@ -51,25 +53,25 @@ public class LinkedList<E> {
     }
 
     public void add(int index, E e) {
-         if (index < 0 || index > size) {
+        if (index < 0 || index > size) {
             throw new IllegalArgumentException("Get failed. Index is illegal.");
         }
 
         // if(index == 0) {
-        //     this.addFirst(e);
+        // this.addFirst(e);
         // }else {
-            // Node prev = head;
-            // for (int i = 0; i < index - 1; i++){
-            //     prev = prev.next;
-            // }
+        // Node prev = head;
+        // for (int i = 0; i < index - 1; i++){
+        // prev = prev.next;
+        // }
 
-            Node prev = dummyHead;
-            for (int i = 0; i < index; i++) {
-                prev = prev.next;
-            }
+        Node prev = dummyHead;
+        for (int i = 0; i < index; i++) {
+            prev = prev.next;
+        }
 
-            prev.next = new Node(e, prev.next);
-            size++;
+        prev.next = new Node(e, prev.next);
+        size++;
         // }
     }
 
@@ -77,13 +79,13 @@ public class LinkedList<E> {
         // Node node = new Node(e);
         // node.next = head;
         // head = node;
-        // => 
+        // =>
         // head = new Node(e, head);
         add(0, e);
     }
 
-    public void addLast(E e){
-        this.add(size -1, e);
+    public void addLast(E e) {
+        this.add(size - 1, e);
     }
 
     public E get(int index) {
@@ -100,11 +102,11 @@ public class LinkedList<E> {
     }
 
     public E getFirst() {
-       return this.get(0);
+        return this.get(0);
     }
 
     public E getLast() {
-        return this.get(size-1);
+        return this.get(size - 1);
     }
 
     public void set(int index, E e) {
@@ -121,8 +123,8 @@ public class LinkedList<E> {
 
     public boolean contains(E e) {
         Node current = dummyHead.next;
-        while(current != null) {
-            if(current.e.equals(e)) {
+        while (current != null) {
+            if (current.e.equals(e)) {
                 return true;
             }
             current = current.next;
@@ -147,19 +149,19 @@ public class LinkedList<E> {
         return removedNode.e;
     }
 
-    public E removeFirst(){
+    public E removeFirst() {
         return this.remove(0);
     }
 
-    public E removeLast(){
-        return this.remove(size-1);
+    public E removeLast() {
+        return this.remove(size - 1);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         Node current = dummyHead.next;
-        while(current != null) {
+        while (current != null) {
             sb.append(current.e.toString() + " -> ");
             current = current.next;
         }

@@ -9,12 +9,14 @@ public class Main {
 
     /**
      * get elapsed seconds:
+     * 
      * enqueue/dequeue no. of opCount Queue
+     * 
      * @param q
      * @param opCount
      * @return
      */
-    private static double testQueue(Queue<Integer> q, int opCount){
+    private static double testQueue(Queue<Integer> q, int opCount) {
         long startTime = System.nanoTime();
 
         Random random = new Random();
@@ -32,17 +34,17 @@ public class Main {
 
     public static void main(String[] args) {
         int opCount = 100_000;
-        
+
         ArrayQueue<Integer> arrayQueue = new ArrayQueue<>();
         double eplased = testQueue(arrayQueue, opCount);
-        System.out.println("ArrayQueue, eplased: " + eplased +"s");
+        System.out.println("ArrayQueue, eplased: " + eplased + "s");
 
         LoopArrayQueue<Integer> loopArrayQueue = new LoopArrayQueue<>();
         eplased = testQueue(loopArrayQueue, opCount);
-        System.out.println("LoopArrayQueue, eplased: " + eplased +"s");
+        System.out.println("LoopArrayQueue, eplased: " + eplased + "s");
 
         LinkedListQueue<Integer> linkedListQueue = new LinkedListQueue<>();
         eplased = testQueue(linkedListQueue, opCount);
-        System.out.println("LinkedListQueue, eplased: " + eplased +"s");
+        System.out.println("LinkedListQueue, eplased: " + eplased + "s");
     }
 }

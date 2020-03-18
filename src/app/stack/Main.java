@@ -7,7 +7,7 @@ import java.util.Random;
  */
 public class Main {
 
-    static double testStack(Stack<Integer> stack, int opCount){
+    static double testStack(Stack<Integer> stack, int opCount) {
         long startTime = System.nanoTime();
 
         Random random = new Random();
@@ -25,13 +25,13 @@ public class Main {
 
     public static void main(String[] args) {
         int opCount = 100_000;
-        
+
         ArrayStack<Integer> arrayStack = new ArrayStack<>();
         double eplased = testStack(arrayStack, opCount);
-        System.out.println("ArrayStack, eplased: " + eplased +"s");
+        System.out.println("ArrayStack, eplased: " + eplased + "s");
 
         LinkedListStack<Integer> linkedListStack = new LinkedListStack<>();
         eplased = testStack(linkedListStack, opCount);
-        System.out.println("LinkedListStack, eplased: " + eplased +"s");
+        System.out.println("LinkedListStack, eplased: " + eplased + "s");
     }
 }
