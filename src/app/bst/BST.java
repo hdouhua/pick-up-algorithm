@@ -185,6 +185,12 @@ public class BST<E extends Comparable<E>> {
         return maximum(root).e;
     }
 
+    /**
+     * remove maximum value
+     * 
+     * @param node
+     * @return the root after remove node
+     */
     private Node maximum(Node node) {
         if (node.right == null) {
             return node;
@@ -204,6 +210,13 @@ public class BST<E extends Comparable<E>> {
         return removeMin(root, null).e;
     }
 
+    /**
+     * remove the minimum value
+     * 
+     * @param node
+     * @param parent
+     * @return the minimum node
+     */
     private Node removeMin(Node node, Node parent) {
         if (node.left == null) {
             if (parent == null) {
@@ -217,10 +230,18 @@ public class BST<E extends Comparable<E>> {
         return removeMin(node.left, node);
     }
 
+    /**
+     * remove the minimum value
+     * 
+     * @param node
+     * @return the root after remove node
+     */
     private Node removeMin(Node node) {
         if (node.left == null) {
+            // 1)
+            // size--;
             // return node.right
-            // specially handle for GC
+            // 2) specially handle for GC
             Node right = node.right;
             node.right = null;
             size--;
@@ -240,6 +261,12 @@ public class BST<E extends Comparable<E>> {
         return e;
     }
 
+    /**
+     * remove the maximum value
+     * 
+     * @param node
+     * @return the root after remove node
+     */
     private Node removeMax(Node node) {
         if (node.right == null) {
             size--;
@@ -247,6 +274,57 @@ public class BST<E extends Comparable<E>> {
         }
         node.right = removeMax(node.right);
         return node;
+    }
+
+    public void remove(E e) {
+        root = remove(root, e);
+    }
+
+    /**
+     * remove node.value == e in the node tree
+     * 
+     * @param node
+     * @param e
+     * @return the root after remove node
+     */
+    private Node remove(Node node, E e) {
+        if (node == null) {
+            return null;
+        }
+        if (e.compareTo(node.e) < 0) {
+            node.left = remove(node.left, e);
+            return node;
+        } else if (e.compareTo(e) > 0) {
+            node.right = remove(node.right, e);
+            return node;
+        } else {
+            // node.e == e
+            // remove node
+
+            if (node.left == null) {
+                Node right = node.right;
+                node.right = null;
+                size--;
+                return right;
+            }
+            if (node.right == null) {
+                Node left = node.left;
+                node.left = null;
+                size--;
+                return left;
+            }
+
+            // search minimun node (successor) in the RIGHT of removing node
+            // this minimum node should be the new root after removed
+            // * another way, we can search maximum node (as predecessor) in the LEFT of removing node
+            Node successor = minimum(node.right);
+            successor.right = removeMin(node.right);
+            successor.left = node.left;
+
+            node.left = node.right = null;
+
+            return successor;
+        }
     }
 
     public static void main(String[] args) {
