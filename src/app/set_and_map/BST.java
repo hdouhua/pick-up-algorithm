@@ -1,4 +1,4 @@
-package app.bst;
+package app.set_and_map;
 
 import java.util.IllegalFormatFlagsException;
 import java.util.LinkedList;
