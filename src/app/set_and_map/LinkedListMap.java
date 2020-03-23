@@ -1,6 +1,5 @@
 package app.set_and_map;
 
-import java.util.ArrayList;
 
 /**
  * LinkedListMap

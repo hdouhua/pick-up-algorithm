@@ -302,10 +302,10 @@ public class BST<E extends Comparable<E>> {
             // remove node
 
             if (node.left == null) {
-                Node right = node.right;
+                Node newRoot = node.right;
                 node.right = null;
                 size--;
-                return right;
+                return newRoot;
             }
             if (node.right == null) {
                 Node left = node.left;

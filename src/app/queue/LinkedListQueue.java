@@ -1,7 +1,5 @@
 package app.queue;
 
-import app.link.LinkedList;
-
 /**
  * LinkedListQueue
  * 
