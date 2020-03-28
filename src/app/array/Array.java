@@ -21,12 +21,21 @@ public class Array<E> {
         size = 0;
     }
 
+    public Array(E[] arr) {
+        data = (E[]) new Object[arr.length];
+        for (int i = 0; i < arr.length; i++) {
+            data[i] = arr[i];
+        }
+        size = arr.length;
+    }
+
     /**
      * default capacity: 10
      */
     public Array() {
         this(10);
     }
+
 
     public int getSize() {
         return size;
@@ -183,5 +192,15 @@ public class Array<E> {
             newData[i] = data[i];
         }
         data = newData;
+    }
+
+    public void swap(int i, int j) {
+        if (i < 0 || i > size || j < 0 || j > size) {
+            throw new IllegalArgumentException("Index is illegal.");
+        }
+
+        E temp = data[i];
+        data[i] = data[j];
+        data[j] = temp;
     }
 }
